@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIR RESERVAR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+hashdahdflasdflkasdfh
+<body>
+    <header>
+        <h1>Air Resevar</h1>
+        <div id="visitorFlag"></div> <!-- Empty div for visitor flag -->
+    </header>
+    <main>
+        <section id="search">
+            <h2>Search for Flights</h2>
+            <form id="searchForm" onsubmit="return fetchFlights()">
+                <input type="text" id="from" placeholder="From" required>
+                <input type="text" id="destination" placeholder="Destination" required>
+                <input type="date" id="travelDate" required>
+                <input type="number" id="adults" placeholder="Adults" min="1" max="10" required>
+                <input type="number" id="children" placeholder="Children" min="0" max="10" required>
+                <input type="submit" value="Search">
+            </form>
+        </section>
+        <section id="flightDetails">
+            <h2>Flight Details</h2>
+            <div class="flight-details-table">
+                <div class="flight-details-row flight-details-header">
+                    <div class="flight-detail-column">Airline</div>
+                    <div class="flight-detail-column">Departure Time</div>
+                    <div class="flight-detail-column">Arrival Time</div>
+                    <div class="flight-detail-column">Travel Time</div>
+                    <div class="flight-detail-column">Layovers</div>
+                    <div class="flight-detail-column">Price</div>
+                </div>
+                <!-- Flight details will be displayed here -->
+            </div>
+            <table id="flightTable" class="flight-details-table">
+                <tbody>
+                    <tr>
+                        <td>Sample Data</td>
+                        <td>Sample Data</td>
+                        <td>Sample Data</td>
+                        <td>Sample Data</td>
+                        <td>Sample Data</td>
+                        <td>Sample Data</td>
+                    </tr>
+                    <tr>
+                        <td>Sample Data</td>
+                        <td>Sample Data</td>
+                        <td>Sample Data</td>
+                        <td>Sample Data</td>
+                        <td>Sample Data</td>
+                        <td>Sample Data</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </section>
+        <section id="results">
+            <h2></h2>
+            <!-- Flight results will be displayed here -->
+        </section>
+    </main>
+    <footer>
+        <p>Call NOW to book your flight: <a href="tel:+1234567890"></a></p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+
+        // Fetch flights function
+        async function fetchVisitorFlag() {
+            try {
+                const response = await fetch('https://ipinfo.io/json');
+                const data = await response.json();
+                const countryCode = data.country;
+
+                // Set the background image of visitorFlag div to the flag icon
+                document.getElementById('visitorFlag').style.backgroundImage = `url('https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/${countryCode.toLowerCase()}.svg')`;
+            } catch (error) {
+                console.error('Error fetching visitor flag:', error);
+            }
+        }
+
+        // Call the fetchVisitorFlag function when the page loads
+        document.addEventListener('DOMContentLoaded', fetchVisitorFlag);
+        async function fetchFlights() {
+            const from = document.getElementById("from").value;
+            const destination = document.getElementById("destination").value;
+            const travelDate = document.getElementById("travelDate").value;
+            const adults = document.getElementById("adults").value;
+            const children = document.getElementById("children").value;
+
+            // Example API URL (replace with your actual API endpoint)
+            const apiUrl = `https://example.com/flights?from=${from}&destination=${destination}&date=${travelDate}&adults=${adults}&children=${children}`;
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                // Display flight details in results section
+                displayFlightDetails(data);
+            } catch (error) {
+                console.error('Error fetching flights:', error);
+            }
+
+            return false; // Prevent form submission
+        }
+
+        // Display flight details function
+        function displayFlightDetails(data) {
+            const flightDetailsSection = document.getElementById("flightDetails");
+
+            // Clear previous results
+            flightDetailsSection.innerHTML = "";
+
+            // Add flight details row
+            const flightDetailsRow = document.createElement("div");
+            flightDetailsRow.classList.add("flight-details-row");
+
+            // Add flight details columns
+            const columns = ['airline', 'departureTime', 'arrivalTime', 'travelTime', 'layovers', 'price'];
+            columns.forEach(column => {
+                const flightDetailColumn = document.createElement("div");
+                flightDetailColumn.classList.add("flight-detail-column");
+                flightDetailColumn.textContent = column.charAt(0).toUpperCase() + column.slice(1); // Capitalize first letter
+                flightDetailsRow.appendChild(flightDetailColumn);
+            });
+
+            flightDetailsSection.appendChild(flightDetailsRow);
+
+            // Display each flight
+            data.forEach(flight => {
+                const flightDetailsRow = document.createElement("div");
+                flightDetailsRow.classList.add("flight-details-row");
+
+                // Add flight details columns
+                const columns = ['airline', 'departureTime', 'arrivalTime', 'travelTime', 'layovers', 'price'];
+                columns.forEach(column => {
+                    const flightDetailColumn = document.createElement("div");
+                    flightDetailColumn.classList.add("flight-detail-column");
+                    flightDetailColumn.textContent = flight[column];
+                    flightDetailsRow.appendChild(flightDetailColumn);
+                });
+
+                flightDetailsSection.appendChild(flightDetailsRow);
+            });
+        }
+    </script>
+</body>
+
+</html>
