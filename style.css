@@ -17,6 +17,19 @@ body {
     background-position: center;
     
 }
+#login-button {
+    background-color: #007bff; /* Blue color, adjust as needed */
+    color: #fff; /* White text */
+    padding: 8px 16px; /* Adjust padding as needed */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px; /* Adjust spacing from the visitor flag */
+}
+
+#login-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
 
 tbody{
     font-size: x-large;
@@ -29,6 +42,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #007bff;
 }
 
 header h1 {
@@ -77,14 +91,14 @@ input[type="date"]::-webkit-inner-spin-button {
 }
 
 input[type="submit"] {
-    background-color: #ff5700;
+    background-color: #007bff;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #ff6c40;
+    background-color: #5da0e7;
 }
 
 #flightDetails {
@@ -175,7 +189,7 @@ footer {
 }
 
 footer a {
-    color: #ff5700;
+    color: #007bff;
     text-decoration: none;
     font-weight: bold;
 }
