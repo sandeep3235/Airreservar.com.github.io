@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/" type="image/icon type">
+
 
 </head>
 
@@ -32,29 +34,25 @@
         <section id="search">
             <h2>Search for Flights</h2>
             <form id="searchForm" action="connect.php" method="post">
-                <input type="text" id="from" placeholder="From" required>
-                <input type="text" id="destination" placeholder="Destination" required>
+                <p>From</p>
+                <input type="text" id="from" required>
+                <p>Destination</p>
+                <input type="text" id="destination" required>
+                <p>Travel Date</p>
                 <input type="date" id="travelDate" required>
-                <input type="text" id="returnDate" placeholder="Add a Return date">
-                <input type="number" id="adults" placeholder="Adults" min="1" max="10" required>
-                <input type="number" id="children" placeholder="Children" min="0" max="10" >
+                <p>Return Date</p>
+                <input type="date" id="returnDate">
+                <p>Adults</p>
+                <input type="number" id="adults" min="1" max="10" required>
+                <p>Children</p>
+                <input type="number" id="children" min="0" max="10">
                 <input type="submit" value="Search">
             </form>
         </section>
         <section id="flightDetails">
             <h2>Flight Details</h2>
-            <!-- <div class="flight-details-table">
-                <!-- <div class="flight-details-row flight-details-header">
-                    <div class="flight-detail-column">Airline</div>
-                    <div class="flight-detail-column">Departure Time</div>
-                    <div class="flight-detail-column">Arrival Time</div>
-                    <div class="flight-detail-column">Travel Time</div>
-                    <div class="flight-detail-column">Layovers</div>
-                    <div class="flight-detail-column">Price</div>
-                </div> -->
-            <!-- Flight details will be displayed here -->
-            <!-- </div>  -->
-            <table id="flightTable" class="flight-details-table">
+
+            <!-- <table id="flightTable" class="flight-details-table">
                 <tbody>
                     <tr>
                         <td>Airline</td>
@@ -73,8 +71,10 @@
                         <td>24,000 Rs</td>
                     </tr>
                     <!-- Add more rows as needed -->
-                </tbody>
-            </table>
+            <!-- </tbody>
+            </table> --> -->
+
+
         </section>
         <section id="results">
             <h2></h2>
