@@ -98,6 +98,11 @@ searchform input[type="submit"] {
 
 }
 
+.footer1 p{
+    margin-left: 0%;
+
+}
+
 p{
     margin-left: 28%;
     font-size: small;
