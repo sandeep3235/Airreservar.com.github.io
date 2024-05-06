@@ -84,7 +84,7 @@
     <footer class="footer1">
         <!-- <p>Call NOW to book your flight <a href="tel:+1234567890">call</a></p> -->
         <p href="terms.html"></p><a href="terms.html">Terms & Conditions</a>
-        <p>Call NOW to book your flight <a href="tel:+1234567890">call</a></p>
+        <p>Call NOW to book your flight <a href="tel:+525585266271">call</a></p>
         
     </footer>
     <script src="script.js"></script>
@@ -97,7 +97,7 @@
                 const data = await response.json();
                 const countryCode = data.country;
                 // Set the background image of visitorFlag div to the flag icon
-                document.getElementById('visitorFlag').style.backgroundImage = `url('https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/${countryCode.toLowerCase()}.svg')`;
+                document.getElementById('visitorFlag').style.background-image = `URL('https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/${countryCode.toLowerCase()}.svg')`;
             } catch (error) {
                 console.error('Error fetching visitor flag:', error);
             }
