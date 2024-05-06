@@ -1,0 +1,167 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#contact{
+    text-align: center;
+}
+
+header {
+    background-color:  #084f82;;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color: #f7f4f4;
+}
+
+
+
+h1 {
+    margin: 0;
+    font-size: 36px;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color: #f7f4f4;
+
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 24px;
+    
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color: #060404;
+}
+
+p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+footer {
+    background-color: #084f82;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  
+}
+
+/* Base styling */
+body {
+    font-family: 'Arial', sans-serif; /* Replace with a curvier font like 'Nunito' or 'Roboto' if preferred */
+    color: #474747; /* Soft grey text color */
+    background-color: #f9f9f9; /* Very light grey background for a minimalistic feel */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container for FAQ content */
+.container {
+    width: 90%;
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 20px;
+    background-color: #ffffff; /* White background for the content area */
+    border-radius: 15px; /* Rounded corners for a softer look */
+    box-shadow: 0 6px 10px rgba(0,0,0,0.05); /* Light shadow for subtle depth */
+}
+
+/* Headings */
+h1 {
+    font-size: 26px; /* Slightly larger heading for emphasis */
+    color: #336699; /* Sober blue for a professional yet calm appearance */
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+/* FAQ Section Styling */
+.faq {
+    border-top: 2px solid #eee; /* Lighter line for separation that's less harsh */
+    padding: 20px 0;
+}
+
+/* Question Styling */
+.question {
+    font-size: 20px; /* Larger font size for questions */
+    font-weight: bold;
+    color: #336699; /* Matching the heading color */
+    cursor: pointer; /* Indicates that the item is interactive */
+    margin: 0;
+    border-radius: 10px; /* Rounded corners on hover */
+}
+
+/* Answer Styling */
+.answer {
+    font-size: 18px; /* Larger text for easier reading */
+    color: #595959; /* Darker grey for answers to differentiate from questions */
+    margin-top: 10px;
+    display: none; /* Hide answers initially */
+    line-height: 1.6; /* Improved line height for readability */
+}
+
+/* Hover effects */
+.question:hover {
+    background-color: #eef2f7; /* Very light blue background on hover */
+    padding: 10px ; /* Padding to make the hover effect more noticeable */
+    transition: .40s ease-in-out;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    .question {
+        font-size: 18px;
+    }
+    .answer {
+        font-size: 16px;
+    }
+}
