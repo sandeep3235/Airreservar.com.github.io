@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Contact Us</h1>
+        <!-- Include navigation links here if needed -->
+    </header>
+    <main>
+        <section id="contact">
+            <h2>Contact Information</h2>
+            <div class="container">
+                <h1>Frequently Asked Questions (FAQ)</h1>
+                <div class="faq">
+                    <p class="question">How do I book a flight?</p>
+                    <p class="answer">You can book a flight by searching for your desired destination and dates on our
+                        homepage. Once you find a suitable flight, follow the instructions to complete your booking.</p>
+                </div>
+                <div class="faq">
+                    <p class="question">Can I change my flight after booking?</p>
+                    <p class="answer">Yes, you can change your flight after booking, subject to airline policies and
+                        availability. Additional fees may apply.</p>
+                </div>
+                <!-- Add more FAQ items as needed -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Flight Booking Services. All rights reserved.</p>
+    </footer>
+    <script>
+        document.querySelectorAll('.question').forEach(function(question) {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                } else {
+                    answer.style.display = 'block';
+                }
+            });
+        });
+        </script>
+    
+</body>
+
+</html>
