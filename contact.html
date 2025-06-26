@@ -4,53 +4,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <meta name="description" content="Contact Airreservar.com for flight bookings, customer support, and frequently asked questions.">
+    <title>Contact Us | Airreservar.com</title>
     <link rel="stylesheet" href="contact.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        /* Add some enhancements - ideally put these in contact.css */
+        .faq .answer {
+            display: none;
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+        }
+        .faq .question {
+            cursor: pointer;
+            font-weight: bold;
+            outline: none;
+        }
+        .faq .question:focus {
+            color: #0078D7;
+        }
+        form {
+            margin-top: 2rem;
+        }
+        label {
+            display: block;
+            margin: 0.5rem 0 0.25rem 0;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-family: inherit;
+        }
+        button[type="submit"] {
+            background: #0078D7;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button[type="submit"]:hover {
+            background: #005fa3;
+        }
+        @media (max-width: 600px) {
+            .container, form {
+                padding: 0 1rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <h1>Contact Us</h1>
-        <!-- Include navigation links here if needed -->
+        <!-- Navigation could go here -->
     </header>
     <main>
         <section id="contact">
             <h2>Contact Information</h2>
             <div class="container">
                 <h1>Frequently Asked Questions (FAQ)</h1>
-                <div class="faq">
-                    <p class="question">How do I book a flight?</p>
-                    <p class="answer">You can book a flight by searching for your desired destination and dates on our
-                        homepage. Once you find a suitable flight, follow the instructions to complete your booking.</p>
+                <div class="faq" role="region" aria-labelledby="faq-title">
+                    <div>
+                        <button class="question" aria-expanded="false" aria-controls="faq1">How do I book a flight?</button>
+                        <div class="answer" id="faq1">You can book a flight by searching for your desired destination and dates on our homepage. Once you find a suitable flight, follow the instructions to complete your booking.</div>
+                    </div>
+                    <div>
+                        <button class="question" aria-expanded="false" aria-controls="faq2">Can I change my flight after booking?</button>
+                        <div class="answer" id="faq2">Yes, you can change your flight after booking, subject to airline policies and availability. Additional fees may apply.</div>
+                    </div>
+                    <!-- Add more FAQ items as needed -->
                 </div>
-                <div class="faq">
-                    <p class="question">Can I change my flight after booking?</p>
-                    <p class="answer">Yes, you can change your flight after booking, subject to airline policies and
-                        availability. Additional fees may apply.</p>
-                </div>
-                <!-- Add more FAQ items as needed -->
             </div>
+            <form aria-label="Contact form">
+                <h2>Send us a message</h2>
+                <label for="name">Name <span aria-hidden="true">*</span></label>
+                <input type="text" id="name" name="name" required autocomplete="name">
+
+                <label for="email">Email <span aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" required autocomplete="email">
+
+                <label for="message">Message <span aria-hidden="true">*</span></label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
         </section>
     </main>
     <footer>
         <p>© 2024 Flight Booking Services. All rights reserved.</p>
     </footer>
     <script>
-        document.querySelectorAll('.question').forEach(function(question) {
-            question.addEventListener('click', function() {
-                const answer = this.nextElementSibling;
-                if (answer.style.display === 'block') {
-                    answer.style.display = 'none';
-                } else {
-                    answer.style.display = 'block';
+        // FAQ Toggle with accessibility
+        document.querySelectorAll('.faq .question').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                const answer = document.getElementById(this.getAttribute('aria-controls'));
+                const expanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !expanded);
+                answer.style.display = expanded ? 'none' : 'block';
+            });
+            btn.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
                 }
             });
         });
-        </script>
-    
+
+        // Simple form validation feedback
+        document.querySelector('form').addEventListener('submit', function (e) {
+            if (!this.checkValidity()) {
+                e.preventDefault();
+                alert('Please fill in all required fields.');
+            } else {
+                // For demo: prevent actual submission
+                e.preventDefault();
+                alert('Thank you for contacting us!');
+                this.reset();
+            }
+        });
+    </script>
 </body>
 
 </html>
